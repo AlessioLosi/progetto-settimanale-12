@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Immagine img = new Immagine("Foto1");
-        Video vid = new Video("Intersellar", 245);
+        Video vid = new Video("Intersellar", 7);
         RegistrazioneAudio audio = new RegistrazioneAudio("it's okay, i'm okay", 3);
         RegistrazioneAudio audio1 = new RegistrazioneAudio("All Too Well", 10);
 

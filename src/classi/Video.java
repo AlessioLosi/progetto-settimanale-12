@@ -61,8 +61,9 @@ public class Video extends ElementoMultimediale implements Riproduci {
         for (int i = 0; i < luminosità; i++) {
             luminositàIndicator += "*";
         }
+        for (int i = 0; i < durata; i++) {
         String result= "In riproduzione il video: "+ titolo + " della durata di: "+durata+" minuti "+ " Volume: "+volumeIndicator +" , "+" Luminosità: " + luminositàIndicator;
-        System.out.println(result);
+        System.out.println(result);}
 
     }
 

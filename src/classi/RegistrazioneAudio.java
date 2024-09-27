@@ -47,8 +47,9 @@ public class RegistrazioneAudio extends ElementoMultimediale implements Riproduc
         for (int i = 0; i < volume; i++) {
             volumeIndicator += "!";
         }
+        for (int i = 0; i < durata; i++) {
         String result= "In riproduzione la traccia: "+ titolo + " della durata di: "+durata+" minuti "+ ", Volume: "+volumeIndicator ;
-        System.out.println(result);
+        System.out.println(result);}
 
     }
 
