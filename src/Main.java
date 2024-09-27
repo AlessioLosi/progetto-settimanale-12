@@ -2,24 +2,25 @@ import classi.Immagine;
 import classi.RegistrazioneAudio;
 import classi.Video;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<Immagine> immagini = new ArrayList<>();
-        immagini.add(new Immagine("Foto1"));
-        immagini.add(new Immagine("Foto2"));
-        immagini.add(new Immagine("Foto3"));
+        Immagine[] immagini = {
+                new Immagine("Foto1"),
+                new Immagine("Foto2"),
+                new Immagine("Foto3")
+        };
 
-        List<Video> video = new ArrayList<>();
-        video.add(new Video("Interstellar", 7));
-        video.add(new Video("Inception", 9));
+        Video[] video = {
+                new Video("Interstellar", 7),
+                new Video("Inception", 9)
+        };
 
-        List<RegistrazioneAudio> audio = new ArrayList<>();
-        audio.add(new RegistrazioneAudio("it's okay, i'm okay", 3));
-        audio.add(new RegistrazioneAudio("All Too Well", 10));
+        RegistrazioneAudio[] audio = {
+                new RegistrazioneAudio("it's okay, i'm okay", 3),
+                new RegistrazioneAudio("All Too Well", 10)
+        };
 
         Scanner scanner = new Scanner(System.in);
         boolean continua = true;
@@ -57,17 +58,17 @@ public class Main {
         scanner.close();
     }
 
-    private static void mostraImmagini(Scanner scanner, List<Immagine> immagini) {
+    private static void mostraImmagini(Scanner scanner, Immagine[] immagini) {
         System.out.println("Immagini disponibili:");
-        for (int i = 0; i < immagini.size(); i++) {
-            System.out.println((i + 1) + " - " + immagini.get(i).getTitolo());
+        for (int i = 0; i < immagini.length; i++) {
+            System.out.println((i + 1) + " - " + immagini[i].getTitolo());
         }
         System.out.print("Scegli un'immagine da vedere: ");
         int sceltaImmagine = scanner.nextInt();
         scanner.nextLine();
 
-        if (sceltaImmagine > 0 && sceltaImmagine <= immagini.size()) {
-            Immagine img = immagini.get(sceltaImmagine - 1);
+        if (sceltaImmagine > 0 && sceltaImmagine <= immagini.length) {
+            Immagine img = immagini[sceltaImmagine - 1];
             img.show();
             modificaLuminosita(scanner, img);
             img.show();
@@ -76,17 +77,17 @@ public class Main {
         }
     }
 
-    private static void riproduciVideo(Scanner scanner, List<Video> video) {
+    private static void riproduciVideo(Scanner scanner, Video[] video) {
         System.out.println("Video disponibili:");
-        for (int i = 0; i < video.size(); i++) {
-            System.out.println((i + 1) + " - " + video.get(i).getTitolo());
+        for (int i = 0; i < video.length; i++) {
+            System.out.println((i + 1) + " - " + video[i].getTitolo());
         }
         System.out.print("Scegli un video da riprodurre: ");
         int sceltaVideo = scanner.nextInt();
         scanner.nextLine();
 
-        if (sceltaVideo > 0 && sceltaVideo <= video.size()) {
-            Video vid = video.get(sceltaVideo - 1);
+        if (sceltaVideo > 0 && sceltaVideo <= video.length) {
+            Video vid = video[sceltaVideo - 1];
             vid.play();
             modificaVolumeVideo(scanner, vid);
             modificaLuminosita(scanner, vid);
@@ -97,17 +98,17 @@ public class Main {
     }
 
 
-    private static void riproduciAudio(Scanner scanner, List<RegistrazioneAudio> audio) {
+    private static void riproduciAudio(Scanner scanner, RegistrazioneAudio[] audio) {
         System.out.println("Audio disponibili:");
-        for (int i = 0; i < audio.size(); i++) {
-            System.out.println((i + 1) + " - " + audio.get(i).getTitolo());
+        for (int i = 0; i < audio.length; i++) {
+            System.out.println((i + 1) + " - " + audio[i].getTitolo());
         }
         System.out.print("Scegli un audio da riprodurre: ");
         int sceltaAudio = scanner.nextInt();
         scanner.nextLine();
 
-        if (sceltaAudio > 0 && sceltaAudio <= audio.size()) {
-            RegistrazioneAudio aud = audio.get(sceltaAudio - 1);
+        if (sceltaAudio > 0 && sceltaAudio <= audio.length) {
+            RegistrazioneAudio aud = audio[sceltaAudio - 1];
             aud.play();
             modificaVolumeAudio(scanner, aud);
             aud.play();
@@ -146,6 +147,7 @@ public class Main {
         }
     }
 
+
     private static void modificaVolumeVideo(Scanner scanner, Video video) {
         boolean continuaVolume = true;
 
@@ -174,6 +176,7 @@ public class Main {
             }
         }
     }
+
 
     private static void modificaLuminosita(Scanner scanner, Immagine immagine) {
         boolean continuaLuminosita = true;
